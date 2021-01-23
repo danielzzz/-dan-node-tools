@@ -1,0 +1,47 @@
+{
+  "name": "@dan/node-tools",
+  "version": "1.0.0",
+  "description": "various tools to reuse in projects",
+  "main": "dist/index.js",
+  "license": "LGPL",
+  "private": true,
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "babel-jest": "^26.6.3",
+    "clean-jsdoc-theme": "^3.0.6",
+    "jest": "^26.6.3",
+    "jsdoc": "^3.6.6",
+    "jsdoc-template": "^1.2.0"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "babel-preset-es2015": "^6.24.1",
+    "capture-website": "^1.2.8",
+    "esm": "^3.2.25"
+  },
+  "jest": {},
+  "scripts": {
+    "test": "jest",
+    "doc": "node_modules/.bin/jsdoc --configure jsdoc.conf.json --verbose",
+    "build": "babel lib --out-dir dist",
+    "make": "yarn test && yarn doc && yarn build"
+  },
+  "babel": {
+    "ignore": [],
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": "commonjs",
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
